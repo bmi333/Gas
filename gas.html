@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipetas de Gas Colombia | Recarga de Gas a Domicilio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root{
+    --azul:#06283D;
+    --azul2:#1363DF;
+    --verde:#25D366;
+    --amarillo:#FFD23F;
+    --gris:#f5f7fb;
+    --oscuro:#101820;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#fff;
+    color:#222;
+    overflow-x:hidden;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+.navbar{
+    background:rgba(6,40,61,.96);
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    font-weight:900;
+    color:white!important;
+    letter-spacing:.5px;
+}
+
+.navbar-brand span{
+    color:var(--amarillo);
+}
+
+.nav-link{
+    color:white!important;
+    font-weight:600;
+    margin:0 6px;
+}
+
+.nav-link:hover{
+    color:var(--amarillo)!important;
+}
+
+.btn-whatsapp{
+    background:var(--verde);
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:12px 28px;
+    font-weight:800;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(37,211,102,.35);
+}
+
+.btn-whatsapp:hover{
+    transform:translateY(-4px) scale(1.03);
+    color:white;
+    box-shadow:0 12px 30px rgba(37,211,102,.5);
+}
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(135deg,rgba(6,40,61,.93),rgba(19,99,223,.78)),
+    url('https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    padding-top:90px;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(255,210,63,.20);
+    border-radius:50%;
+    top:12%;
+    right:-100px;
+    animation:float 6s ease-in-out infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(37,211,102,.18);
+    border-radius:50%;
+    bottom:10%;
+    left:-70px;
+    animation:float 7s ease-in-out infinite reverse;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-25px);}
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.badge-custom{
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    padding:10px 18px;
+    border-radius:50px;
+    font-weight:700;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,72px);
+    font-weight:950;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--amarillo);
+}
+
+.hero p{
+    font-size:clamp(17px,2vw,22px);
+    max-width:680px;
+    opacity:.95;
+    margin-bottom:30px;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+    border-radius:28px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    animation:pulseCard 4s infinite;
+}
+
+@keyframes pulseCard{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.025);}
+}
+
+.hero-card i{
+    font-size:48px;
+    color:var(--amarillo);
+}
+
+.section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title small{
+    color:var(--azul2);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    font-weight:950;
+    color:var(--azul);
+    font-size:clamp(30px,4vw,48px);
+}
+
+.section-title p{
+    max-width:750px;
+    margin:15px auto 0;
+    color:#555;
+}
+
+.service-card{
+    background:white;
+    border-radius:26px;
+    padding:35px 28px;
+    height:100%;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    border:1px solid #edf0f5;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.service-card::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,var(--azul2),var(--verde),var(--amarillo));
+    top:0;
+    left:0;
+}
+
+.service-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+.service-card i{
+    font-size:46px;
+    color:var(--azul2);
+    margin-bottom:18px;
+}
+
+.service-card h4{
+    font-weight:900;
+    color:var(--azul);
+}
+
+.service-card p{
+    color:#555;
+}
+
+.bg-soft{
+    background:var(--gris);
+}
+
+.steps{
+    position:relative;
+}
+
+.step-box{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    height:100%;
+    transition:.3s;
+}
+
+.step-box:hover{
+    transform:translateY(-8px);
+}
+
+.step-number{
+    width:55px;
+    height:55px;
+    background:var(--azul2);
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.city-chip{
+    background:white;
+    border-radius:50px;
+    padding:13px 22px;
+    box-shadow:0 8px 22px rgba(0,0,0,.07);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:800;
+    margin:8px;
+    color:var(--azul);
+    transition:.3s;
+}
+
+.city-chip:hover{
+    background:var(--azul2);
+    color:white;
+    transform:translateY(-5px);
+}
+
+.price-card{
+    background:linear-gradient(145deg,#ffffff,#f1f5fb);
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    border:1px solid #e8edf5;
+    transition:.35s;
+    height:100%;
+}
+
+.price-card:hover{
+    transform:scale(1.04);
+}
+
+.price-card h3{
+    color:var(--azul);
+    font-weight:950;
+}
+
+.price-card .size{
+    font-size:38px;
+    font-weight:950;
+    color:var(--azul2);
+}
+
+.price-card ul{
+    list-style:none;
+    padding:0;
+    margin-top:20px;
+}
+
+.price-card li{
+    margin:12px 0;
+    color:#444;
+}
+
+.price-card li i{
+    color:var(--verde);
+    margin-right:8px;
+}
+
+.security-box{
+    background:linear-gradient(135deg,var(--azul),#0b4f85);
+    color:white;
+    border-radius:34px;
+    padding:50px;
+    position:relative;
+    overflow:hidden;
+}
+
+.security-box::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,210,63,.18);
+    right:-80px;
+    top:-80px;
+    animation:float 6s infinite;
+}
+
+.security-box h2{
+    font-weight:950;
+}
+
+.security-item{
+    display:flex;
+    gap:15px;
+    margin-bottom:22px;
+    position:relative;
+    z-index:2;
+}
+
+.security-item i{
+    color:var(--amarillo);
+    font-size:28px;
+}
+
+.faq .accordion-item{
+    border:none;
+    margin-bottom:16px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 22px rgba(0,0,0,.07);
+}
+
+.accordion-button{
+    font-weight:800;
+    color:var(--azul);
+}
+
+.accordion-button:not(.collapsed){
+    background:var(--azul2);
+    color:white;
+}
+
+.cta{
+    background:
+    linear-gradient(135deg,rgba(6,40,61,.95),rgba(19,99,223,.9)),
+    url('https://images.unsplash.com/photo-1581092919535-7146ff1a590b?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.cta h2{
+    font-weight:950;
+    font-size:clamp(32px,4vw,55px);
+}
+
+footer{
+    background:#041722;
+    color:white;
+    padding:45px 0 25px;
+}
+
+footer h4{
+    font-weight:900;
+}
+
+footer span{
+    color:var(--amarillo);
+}
+
+.footer-link{
+    color:#d8e3ec;
+    display:block;
+    text-decoration:none;
+    margin:8px 0;
+}
+
+.footer-link:hover{
+    color:var(--amarillo);
+}
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:64px;
+    height:64px;
+    background:var(--verde);
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    text-decoration:none;
+    z-index:999;
+    box-shadow:0 10px 30px rgba(37,211,102,.45);
+    animation:bounce 2.3s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:all .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.form-box{
+    background:white;
+    border-radius:30px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.form-control,.form-select{
+    border-radius:14px;
+    padding:14px;
+    border:1px solid #dce3ee;
+}
+
+.form-control:focus,.form-select:focus{
+    box-shadow:none;
+    border-color:var(--azul2);
+}
+
+@media(max-width:768px){
+    .hero{
+        text-align:center;
+        padding-top:110px;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .security-box{
+        padding:32px 22px;
+    }
+
+    .section{
+        padding:65px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Pipetas de Gas <span>Colombia</span></a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proceso">Cómo funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#zonas">Cobertura</a></li>
+                <li class="nav-item"><a class="nav-link" href="#precios">Pipetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a class="btn-whatsapp" href="https://wa.me/573160556370?text=Hola,%20quiero%20solicitar%20una%20recarga%20de%20pipeta%20de%20gas" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Pedir gas
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="badge-custom">
+                    <i class="bi bi-lightning-charge-fill"></i> Servicio rápido en Colombia
+                </div>
+                <h1>Recarga de <span>pipetas de gas</span> a domicilio</h1>
+                <p>
+                    Solicita tu pipeta de gas de forma rápida, segura y confiable. Atendemos hogares,
+                    negocios, restaurantes, fincas, locales comerciales y conjuntos residenciales.
+                </p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                    <a class="btn-whatsapp" href="https://wa.me/573160556370?text=Hola,%20quiero%20pedir%20una%20pipeta%20de%20gas%20a%20domicilio" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Solicitar por WhatsApp
+                    </a>
+                    <a href="#servicios" class="btn btn-light rounded-pill px-4 py-3 fw-bold">
+                        Ver servicios
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="hero-card text-center">
+                    <i class="bi bi-fire"></i>
+                    <h3 class="fw-bold mt-3">Gas seguro para tu hogar o negocio</h3>
+                    <p class="mb-4">
+                        Atención personalizada, coordinación rápida y cobertura en principales ciudades,
+                        municipios y corregimientos.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <h2 class="fw-black">24/7</h2>
+                            <small>Recepción de pedidos</small>
+                        </div>
+                        <div class="col-6">
+                            <h2 class="fw-black">100%</h2>
+                            <small>Atención por WhatsApp</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="servicios">
+    <div class="container">
+        <div class="section-title reveal">
+            <small>Servicios principales</small>
+            <h2>Soluciones de gas para cada necesidad</h2>
+            <p>
+                En Pipetas de Gas Colombia te ayudamos a coordinar la recarga, compra o cambio de pipetas
+                de forma práctica y segura.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal">
+                <div class="service-card">
+                    <i class="bi bi-truck"></i>
+                    <h4>Gas a domicilio</h4>
+                    <p>Llevamos tu pipeta hasta tu hogar, negocio o punto de consumo según disponibilidad de zona.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 reveal">
+                <div class="service-card">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <h4>Cambio de cilindro</h4>
+                    <p>Coordinamos el cambio de pipeta vacía por una pipeta cargada para que no pares tus actividades.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 reveal">
+                <div class="service-card">
+                    <i class="bi bi-shop"></i>
+                    <h4>Negocios y restaurantes</h4>
+                    <p>Servicio pensado para cocinas, panaderías, restaurantes, asaderos, cafeterías y comercios.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 reveal">
+                <div class="service-card">
+                    <i class="bi bi-shield-check"></i>
+                    <h4>Atención segura</h4>
+                    <p>Te orientamos para revisar estado del cilindro, ubicación adecuada y recomendaciones básicas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-soft" id="proceso">
+    <div class="container">
+        <div class="section-title reveal">
+            <small>Proceso simple</small>
+            <h2>¿Cómo pedir tu pipeta?</h2>
+            <p>En pocos pasos puedes coordinar tu servicio directamente por WhatsApp.</p>
+        </div>
+
+        <div class="row g-4 steps">
+            <div class="col-md-4 reveal">
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <h4 class="fw-bold">Escríbenos</h4>
+                    <p>Haz clic en el botón de WhatsApp y dinos tu ciudad, barrio y tipo de pipeta que necesitas.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <h4 class="fw-bold">Confirmamos disponibilidad</h4>
+                    <p>Validamos cobertura, tipo de servicio y datos de entrega para coordinar tu pedido.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <h4 class="fw-bold">Recibes tu gas</h4>
+                    <p>Se coordina la entrega o cambio de pipeta en el punto indicado, de forma rápida y confiable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="zonas">
+    <div class="container">
+        <div class="section-title reveal">
+            <small>Cobertura nacional</small>
+            <h2>Llegamos a principales ciudades y municipios</h2>
+            <p>
+                Atendemos solicitudes en Colombia y zonas cercanas según disponibilidad operativa.
+            </p>
+        </div>
+
+        <div class="text-center reveal">
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Bogotá</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Medellín</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Cali</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Bucaramanga</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Barranquilla</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Cartagena</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Cúcuta</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Pereira</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Manizales</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Municipios</span>
+            <span class="city-chip"><i class="bi bi-geo-alt-fill"></i> Corregimientos</span>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-soft" id="precios">
+    <div class="container">
+        <div class="section-title reveal">
+            <small>Tipos de pipetas</small>
+            <h2>Servicios para diferentes capacidades</h2>
+            <p>
+                Consulta disponibilidad según tu zona. Las capacidades pueden variar dependiendo de la ciudad y el proveedor.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4 reveal">
+                <div class="price-card">
+                    <h3>Uso doméstico</h3>
+                    <div class="size">20 lb</div>
+                    <p>Ideal para hogares pequeños, apartamentos y consumo moderado.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle-fill"></i> Cocina diaria</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Fácil instalación</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Entrega según cobertura</li>
+                    </ul>
+                    <a class="btn-whatsapp mt-3" href="https://wa.me/573160556370?text=Hola,%20quiero%20consultar%20una%20pipeta%20de%2020%20libras" target="_blank">
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="price-card">
+                    <h3>Uso familiar</h3>
+                    <div class="size">40 lb</div>
+                    <p>Una de las opciones más utilizadas para hogares y cocinas familiares.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle-fill"></i> Mayor duración</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Servicio residencial</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Cambio de cilindro</li>
+                    </ul>
+                    <a class="btn-whatsapp mt-3" href="https://wa.me/573160556370?text=Hola,%20quiero%20consultar%20una%20pipeta%20de%2040%20libras" target="_blank">
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="price-card">
+                    <h3>Uso comercial</h3>
+                    <div class="size">100 lb</div>
+                    <p>Recomendada para restaurantes, negocios, fincas y alto consumo.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle-fill"></i> Alto rendimiento</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Ideal para negocios</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Atención prioritaria</li>
+                    </ul>
+                    <a class="btn-whatsapp mt-3" href="https://wa.me/573160556370?text=Hola,%20quiero%20consultar%20una%20pipeta%20de%20100%20libras" target="_blank">
+                        Consultar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="security-box reveal">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <h2>Recomendaciones de seguridad</h2>
+                    <p>
+                        El gas debe manipularse con responsabilidad. Antes de usar una pipeta,
+                        revisa que esté en buen estado y ubicada en un espacio ventilado.
+                    </p>
+                    <a class="btn-whatsapp mt-3" href="https://wa.me/573160556370?text=Hola,%20quiero%20recibir%20asesoría%20para%20pedir%20una%20pipeta%20de%20gas" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Recibir asesoría
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="security-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <div>
+                            <h5 class="fw-bold">Ubicación ventilada</h5>
+                            <p class="mb-0">No instales pipetas en espacios cerrados o cerca de fuentes de calor.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <div>
+                            <h5 class="fw-bold">Revisa mangueras y válvulas</h5>
+                            <p class="mb-0">Verifica que no haya deterioro, fugas, olores extraños o conexiones flojas.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <div>
+                            <h5 class="fw-bold">No manipules si hay olor a gas</h5>
+                            <p class="mb-0">Cierra la válvula, ventila el lugar y evita prender luces o generar chispas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-soft faq">
+    <div class="container">
+        <div class="section-title reveal">
+            <small>Preguntas frecuentes</small>
+            <h2>Resolvemos tus dudas</h2>
+        </div>
+
+        <div class="accordion reveal" id="faq">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        ¿Atienden a domicilio?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Sí. Coordinamos servicio a domicilio según ciudad, barrio y disponibilidad de cobertura.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        ¿Qué datos debo enviar por WhatsApp?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Ciudad, barrio, dirección aproximada, tipo de pipeta, si tienes cilindro vacío y hora en la que necesitas el servicio.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        ¿Atienden negocios?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Sí. Atendemos restaurantes, cafeterías, asaderos, panaderías, locales comerciales, fincas y negocios de alto consumo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        ¿Puedo pedir información antes de comprar?
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Sí. Escríbenos y te orientamos sobre disponibilidad, capacidad recomendada y cobertura en tu zona.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contacto">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 reveal">
+                <div class="section-title text-start mb-4">
+                    <small>Contacto directo</small>
+                    <h2>Solicita tu pipeta ahora</h2>
+                    <p class="mx-0">
+                        Completa los datos y se abrirá WhatsApp con tu solicitud lista para enviar.
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <i class="bi bi-whatsapp fs-2 text-success"></i>
+                    <div>
+                        <strong>WhatsApp:</strong><br>
+                        <span>316 055 6370</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <i class="bi bi-clock-history fs-2 text-primary"></i>
+                    <div>
+                        <strong>Atención:</strong><br>
+                        <span>Pedidos y cotizaciones por WhatsApp</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-geo-alt fs-2 text-warning"></i>
+                    <div>
+                        <strong>Cobertura:</strong><br>
+                        <span>Colombia, principales ciudades, municipios y corregimientos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 reveal">
+                <div class="form-box">
+                    <h3 class="fw-bold mb-4">Pedir por WhatsApp</h3>
+
+                    <form id="pedidoForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Ciudad o municipio</label>
+                            <input type="text" class="form-control" id="ciudad" placeholder="Ej: Bucaramanga" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Barrio o zona</label>
+                            <input type="text" class="form-control" id="barrio" placeholder="Ej: Centro, Provenza, Cabecera" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Tipo de pipeta</label>
+                            <select class="form-select" id="pipeta" required>
+                                <option value="">Selecciona una opción</option>
+                                <option>20 libras</option>
+                                <option>40 libras</option>
+                                <option>100 libras</option>
+                                <option>No sé, necesito asesoría</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Mensaje adicional</label>
+                            <textarea class="form-control" id="mensaje" rows="3" placeholder="Ej: Necesito entrega urgente o cambio de cilindro vacío"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-whatsapp w-100 justify-content-center">
+                            <i class="bi bi-whatsapp"></i> Enviar solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container reveal">
+        <h2>¿Te quedaste sin gas?</h2>
+        <p class="fs-5 mb-4">
+            Escríbenos ahora y coordinamos tu recarga o cambio de pipeta según disponibilidad en tu zona.
+        </p>
+        <a class="btn-whatsapp" href="https://wa.me/573160556370?text=Hola,%20necesito%20una%20pipeta%20de%20gas%20urgente" target="_blank">
+            <i class="bi bi-whatsapp"></i> Pedir ahora
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h4>Pipetas de Gas <span>Colombia</span></h4>
+                <p>
+                    Servicio de coordinación para recarga, cambio y solicitud de pipetas de gas en Colombia.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5 class="fw-bold">Enlaces</h5>
+                <a href="#servicios" class="footer-link">Servicios</a>
+                <a href="#proceso" class="footer-link">Cómo funciona</a>
+                <a href="#zonas" class="footer-link">Cobertura</a>
+                <a href="#contacto" class="footer-link">Contacto</a>
+            </div>
+
+            <div class="col-md-4">
+                <h5 class="fw-bold">Contacto</h5>
+                <p class="mb-1"><i class="bi bi-whatsapp"></i> 316 055 6370</p>
+                <p class="mb-1"><i class="bi bi-geo-alt"></i> Colombia</p>
+                <p><i class="bi bi-clock"></i> Atención por WhatsApp</p>
+            </div>
+        </div>
+
+        <hr style="border-color:rgba(255,255,255,.15);">
+
+        <div class="text-center">
+            <small>© 2026 Pipetas de Gas Colombia. Todos los derechos reservados.</small>
+        </div>
+    </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/573160556370?text=Hola,%20quiero%20solicitar%20una%20recarga%20de%20pipeta%20de%20gas" target="_blank">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+    reveals.forEach(el=>{
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const visiblePoint = 120;
+
+        if(elementTop < windowHeight - visiblePoint){
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+document.getElementById('pedidoForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const ciudad = document.getElementById('ciudad').value.trim();
+    const barrio = document.getElementById('barrio').value.trim();
+    const pipeta = document.getElementById('pipeta').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if(!nombre || !ciudad || !barrio || !pipeta){
+        alert('Por favor completa todos los campos obligatorios.');
+        return;
+    }
+
+    const texto = `Hola, quiero solicitar una pipeta de gas.%0A%0A` +
+    `Nombre: ${nombre}%0A` +
+    `Ciudad/Municipio: ${ciudad}%0A` +
+    `Barrio/Zona: ${barrio}%0A` +
+    `Tipo de pipeta: ${pipeta}%0A` +
+    `Mensaje adicional: ${mensaje || 'Sin mensaje adicional'}`;
+
+    window.open(`https://wa.me/573160556370?text=${texto}`, '_blank');
+});
+</script>
+
+</body>
+</html>
